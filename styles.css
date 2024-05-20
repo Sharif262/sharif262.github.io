@@ -35,24 +35,35 @@ nav {
 .hamburger {
     display: none;
     cursor: pointer;
-    font-size: 24px;
 }
 
-#mobile-nav {
+.hamburger img {
+    width: 30px;
+    height: 30px;
+}
+
+.mobile-nav {
     display: none;
     flex-direction: column;
-    background-color: white;
-    position: absolute;
-    top: 60px;
+    align-items: center;
+    background-color: #fff;
+    position: fixed;
+    top: 70px; /* Adjust based on navbar height */
     width: 100%;
-    left: 0;
-    z-index: 999;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-#mobile-nav a {
-    padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
+.mobile-nav a {
+    color: black;
+    padding: 15px 20px;
+    text-decoration: none;
+    width: 100%;
     text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.mobile-nav a:hover {
+    background-color: #f1f1f1;
 }
 
 section {
@@ -288,6 +299,106 @@ section {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+@media screen and (max-width: 768px) {
+    .timeline:before {
+        margin-left: -64px;
+    }
+
+    .timeline > li > .timeline-panel {
+        width: 85% !important;
+    }
+
+    .timeline > li > .timeline-badge {
+        margin-left: -10px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .timeline:before {
+        margin-left: -64px;
+    }
+
+    .timeline > li > .timeline-panel {
+        width: 75% !important;
+    }
+
+    .timeline > li > .timeline-panel:before {
+        top: 30px;
+    }
+
+    .timeline > li > .timeline-panel:after {
+        top: 31px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .timeline:before {
+        margin-left: -64px;
+    }
+
+    .timeline > li > .timeline-panel {
+        width: 75% !important;
+    }
+
+    .timeline > li > .timeline-panel:before {
+        top: 30px;
+    }
+
+    .timeline > li > .timeline-panel:after {
+        top: 31px;
+    }
+}
+
+@media (max-width: 992px) {
+    ul.timeline:before {
+        left: 90px;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        width: calc(100% - 200px);
+    }
+
+    ul.timeline > li > .timeline-badge {
+        left: 15px;
+        margin-left: 0;
+        top: 16px;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        float: right;
+    }
+
+    ul.timeline > li > .timeline-panel:before {
+        border-left-width: 0;
+        border-right-width: 15px;
+        left: -15px;
+        right: auto;
+    }
+
+    ul.timeline > li > .timeline-panel:after {
+        border-left-width: 0;
+        border-right-width: 14px;
+        left: -14px;
+        right: auto;
+    }
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.icon-container i {
+    font-size: 24px;
+}
+
 #projects {
     background-color: #5293ef;
     padding-top: 40px;
@@ -391,90 +502,47 @@ section {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
-    padding: 10px 20px; /* Make buttons touch-friendly */
 }
 
 #contact form input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-@media screen and (max-width: 768px) {
-    .home-content {
-        flex-direction: column;
-        transform: scale(1);
+@media (max-width: 768px) {
+    .nav-right {
+        display: none;
     }
 
-    .profile-pic-container {
-        margin-right: 0;
-        margin-bottom: 20px;
+    .hamburger {
+        display: block;
     }
 
-    .profile-description h1 {
-        font-size: 36px;
+    .profile-description-box {
+        align-items: center;
+        text-align: center;
     }
 
-    .profile-description .subtitle {
-        font-size: 18px;
-    }
-
-    .profile-description .school {
-        font-size: 18px;
+    .profile-description {
+        text-align: center;
     }
 
     .timeline > li > .timeline-panel {
         width: 80% !important;
+        float: none;
+        margin: 0 auto 20px;
+    }
+
+    .timeline > li.timeline-inverted > .timeline-panel {
+        float: none;
     }
 
     .projects-container {
         flex-direction: column;
-        align-items: center;
     }
 
     .project-card {
-        width: 80% !important;
-    }
-
-    .nav-right a {
-        display: none; /* Hide desktop nav links */
-    }
-
-    .hamburger {
-        display: block; /* Show hamburger icon */
-    }
-
-    #mobile-nav {
-        display: flex; /* Show mobile nav links */
+        width: 80%;
+        margin-bottom: 20px;
     }
 }
 
-@media screen and (max-width: 480px) {
-    .home-content {
-        transform: scale(1);
-    }
-
-    .profile-pic {
-        width: 150px;
-        height: 150px;
-        border: 5px solid black;
-    }
-
-    .profile-description h1 {
-        font-size: 24px;
-    }
-
-    .profile-description .subtitle {
-        font-size: 14px;
-    }
-
-    .profile-description .school {
-        font-size: 14px;
-    }
-
-    .timeline > li > .timeline-panel {
-        width: 90% !important;
-    }
-
-    .project-card {
-        width: 90% !important;
-    }
-}
