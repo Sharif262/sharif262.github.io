@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.getElementById('navbar');
     const homeSection = document.getElementById('home');
-    const mobileNav = document.getElementById('mobile-nav');
-    const hamburger = document.getElementById('hamburger');
 
     function checkScroll() {
         const homeSectionBottom = homeSection.getBoundingClientRect().bottom;
@@ -39,9 +37,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('scroll', checkScroll);
-    checkScroll();
+    checkScroll(); // Initial check in case user starts scrolled down
+});
 
-    hamburger.addEventListener('click', function() {
-        mobileNav.classList.toggle('show');
+document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.getElementById('navbar');
+    const homeSection = document.getElementById('home');
+
+    window.addEventListener('scroll', function () {
+        const homeHeight = homeSection.offsetHeight;
+        if (window.scrollY > homeHeight - navbar.offsetHeight) {
+            navbar.classList.add('nav-background');
+        } else {
+            navbar.classList.remove('nav-background');
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    hamburger.addEventListener('click', function () {
+        if (mobileNav.style.display === 'flex') {
+            mobileNav.style.display = 'none';
+        } else {
+            mobileNav.style.display = 'flex';
+        }
+    });
+
+    // Close the mobile menu when a link is clicked
+    const mobileNavLinks = mobileNav.querySelectorAll('a');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            mobileNav.style.display = 'none';
+        });
     });
 });
