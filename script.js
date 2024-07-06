@@ -51,3 +51,9 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 });
+
+// script.js
+function toggleNav() {
+    const navRight = document.getElementById('nav-right');
+    navRight.classList.toggle('show');
+}
